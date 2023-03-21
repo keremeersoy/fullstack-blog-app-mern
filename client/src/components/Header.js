@@ -29,7 +29,7 @@ export default function Header() {
   const username = userInfo?.username;
 
   return (
-    <header className="flex items-center justify-between mt-8 mb-16 mx-24">
+    <header className="flex items-center justify-between  py-8 mb-8 px-24 bg-gray-600 text-white">
       <Link to="/" className="text-4xl font-bold">
         MyBlog
       </Link>
@@ -38,6 +38,7 @@ export default function Header() {
           <>
             <Link to="/create">Create New Post</Link>
             <a onClick={logout}>Logout</a>
+            {username}
           </>
         )}
         {!username && (
