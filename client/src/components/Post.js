@@ -27,7 +27,10 @@ export default function Post({
         </Link>
         <p className="mt-4">{summary}</p>
         <p className="flex gap-6 mt-4 text-gray-500">
-          <a href="">{author.username}</a>
+          {author.username && (
+            <Link to={`profile/${author._id}`}>{author.username}</Link>
+          )}
+          {/* {console.log(author)} */}
           <time>{format(new Date(createdAt), "MMM d, yyyy HH:mm")}</time>
         </p>
       </div>

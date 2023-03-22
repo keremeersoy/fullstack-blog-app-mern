@@ -24,12 +24,12 @@ export default function PostPage() {
         <div>by @{postInfo.author.username}</div>
         <time>{formatISO9075(new Date(postInfo.createdAt))}</time>
       </div>
-      <h1 className="flex items-center justify-center text-4xl font-bold my-12 text-white">
+      <h1 className="flex items-center justify-center text-4xl font-bold my-12 text-white ">
         {postInfo.title}
       </h1>
 
       <div
-        className="text-white"
+        className="text-white leading-7 "
         dangerouslySetInnerHTML={{ __html: postInfo.content }}
       />
     </div>
