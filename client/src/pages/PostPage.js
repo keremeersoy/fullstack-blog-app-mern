@@ -20,15 +20,18 @@ export default function PostPage() {
       <div className="flex justify-center">
         <img src={`http://localhost:4000/${postInfo.cover}`} alt="" />
       </div>
-      <div className="flex items-center justify-center mt-4 gap-10 text-gray-500">
-        <time>{formatISO9075(new Date(postInfo.createdAt))}</time>
+      <div className="flex items-center justify-center gap-60 text-gray-500">
         <div>by @{postInfo.author.username}</div>
+        <time>{formatISO9075(new Date(postInfo.createdAt))}</time>
       </div>
-      <h1 className="flex items-center justify-center text-4xl font-bold my-12">
+      <h1 className="flex items-center justify-center text-4xl font-bold my-12 text-white">
         {postInfo.title}
       </h1>
 
-      <div dangerouslySetInnerHTML={{ __html: postInfo.content }} />
+      <div
+        className="text-white"
+        dangerouslySetInnerHTML={{ __html: postInfo.content }}
+      />
     </div>
   );
 }

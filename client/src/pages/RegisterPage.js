@@ -20,7 +20,9 @@ export default function RegisterPage() {
 
   return (
     <form onSubmit={register} className="w-[600px] mx-auto">
-      <h1 className="text-3xl font-bold my-10 text-center">Register</h1>
+      <h1 className="text-3xl text-white font-bold my-10 text-center">
+        Register
+      </h1>
       <input
         type="text"
         placeholder="username"

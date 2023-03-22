@@ -33,7 +33,7 @@ export default function LoginPage() {
 
   return (
     <form className="w-[600px] mx-auto" onSubmit={login}>
-      <h1 className="text-3xl font-bold my-10 text-center">Login</h1>
+      <h1 className="text-3xl text-white font-bold my-10 text-center">Login</h1>
       <input
         type="text"
         placeholder="username"

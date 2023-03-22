@@ -62,28 +62,46 @@ export default function CreatePost() {
 
   return (
     <form onSubmit={createNewPost}>
-      <input
-        type="title"
-        placeholder="title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <input
-        type="summary"
-        placeholder="summary"
-        value={summary}
-        onChange={(e) => setSummary(e.target.value)}
-      />
-      <input type="file" onChange={(e) => setFiles(e.target.files)} />
-      <ReactQuill
-        value={content}
-        modules={modules}
-        formats={formats}
-        onChange={(newValue) => setContent(newValue)}
-      />
-      <button className="bg-green-500 w-full p-2 rounded-md mt-4 text-white">
-        Create Post
-      </button>
+      <div className="flex items-center justify-center my-4 text-white">
+        <input
+          className="w-3/4 block bg-[#393E46] p-4 outline-gray-300"
+          type="title"
+          placeholder="title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+      </div>
+      <div className="flex items-center justify-center my-4 text-white">
+        <input
+          className="w-3/4 block bg-[#393E46] p-4 outline-gray-300"
+          type="summary"
+          placeholder="summary"
+          value={summary}
+          onChange={(e) => setSummary(e.target.value)}
+        />
+      </div>
+
+      <div className="flex items-center justify-center my-4">
+        <input
+          type="file"
+          onChange={(e) => setFiles(e.target.files)}
+          className="bg-[#393E46] text-white w-3/4"
+        />
+      </div>
+      <div className="flex items-center justify-center">
+        <ReactQuill
+          className="w-3/4 text-white"
+          value={content}
+          modules={modules}
+          formats={formats}
+          onChange={(newValue) => setContent(newValue)}
+        />
+      </div>
+      <div className="flex items-center justify-center">
+        <button className="bg-green-500 w-3/4 p-2 rounded-md mt-4 text-white">
+          Create Post
+        </button>
+      </div>
     </form>
   );
 }
