@@ -31,19 +31,39 @@ export default function Header() {
   return (
     <header className="flex items-center justify-between  py-4 mb-8 px-24 bg-[#079aa8] text-white">
       <Link to="/" className="text-4xl font-bold">
-        MyBlog
+        MernBlog
       </Link>
-      <nav className="flex gap-10 text-xl">
+      <nav className="flex gap-10 text-lg items-center">
         {username && (
           <>
-            <Link to="/create">Create New Post</Link>
-            <a onClick={logout}>Logout</a>
+            <Link
+              to="/create"
+              className="bg-[#EEEEEE] text-black py-2 px-4 rounded-lg hover:bg-black hover:text-white duration-300"
+            >
+              Create New Post
+            </Link>
+            <Link
+              to={`/profile/${userInfo.id}`}
+              className="hover:text-black duration-300"
+            >
+              Profile
+            </Link>
+            <a
+              className="hover:text-black duration-300 cursor-pointer"
+              onClick={logout}
+            >
+              Logout
+            </a>
           </>
         )}
         {!username && (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
+            <Link to="/login" className="hover:text-black duration-300">
+              Login
+            </Link>
+            <Link to="/register" className="hover:text-black duration-300">
+              Register
+            </Link>
           </>
         )}
       </nav>

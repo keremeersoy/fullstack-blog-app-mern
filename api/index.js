@@ -47,7 +47,7 @@ app.post("/login", async (req, res) => {
   if (passOk) {
     //logged in
     jwt.sign(
-      { username, id: userDoc._id, posts: userDoc.posts },
+      { username, id: userDoc._id, posts: userDoc?.posts },
       secret,
       {},
       (err, token) => {
@@ -55,7 +55,7 @@ app.post("/login", async (req, res) => {
         res.cookie("token", token).json({
           id: userDoc._id,
           username,
-          posts: userDoc.posts,
+          posts: userDoc?.posts,
         });
       }
     );
@@ -69,7 +69,7 @@ app.get("/profile", (req, res) => {
   jwt.verify(token, secret, {}, async (err, info) => {
     if (err) throw err;
     const userDoc = await User.findOne({ username: info.username }).select(
-      "username posts" //userin sadece username ve posts arrayini getirmesi icin
+      "_id username posts" //userin sadece _id,username ve posts arrayini getirmesi icin
     );
     // console.log(userDoc);
     res.json(userDoc);
