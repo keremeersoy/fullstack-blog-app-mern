@@ -64,20 +64,16 @@ app.post("/login", async (req, res) => {
   }
 });
 
-app.get("/profile", (req, res) => {
-  const { token } = req.cookies;
-  jwt.verify(token, secret, {}, async (err, info) => {
-    if (err) throw err;
-    const userDoc = await User.findOne({ username: info.username }).select(
-      "_id username posts" //userin sadece _id,username ve posts arrayini getirmesi icin
-    );
-    // console.log(userDoc);
-    res.json(userDoc);
-    // res.json(info);
-    // console.log(info);
-  });
-  //   res.json(req.cookies);
-});
+// app.get("/profile", (req, res) => {
+//   const { token } = req.cookies; TOKEN DÖNMÜYOR
+//   jwt.verify(token, secret, {}, async (err, info) => {
+//     if (err) throw err;
+//     const userDoc = await User.findOne({ username: info.username }).select(
+//       "_id username posts" //userin sadece _id,username ve posts arrayini getirmesi icin
+//     );
+//     res.json(userDoc);
+//   });
+// });
 
 app.post("/logout", (req, res) => {
   res.cookie("token", "").json("ok");
